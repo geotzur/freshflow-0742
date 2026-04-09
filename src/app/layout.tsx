@@ -59,7 +59,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-white text-surface-dark">
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <FloatingCallButton />
       </body>

@@ -38,8 +38,8 @@ export default function ServiceCard({ slug, name, short_description }: ServiceCa
         <p className="text-sm text-slate-600 leading-relaxed flex-1 line-clamp-3">
           {short_description}
         </p>
-        <div className="mt-4 flex items-center gap-1 text-primary font-semibold text-sm font-heading">
-          Learn More <ArrowRight size={16} />
+        <div className="mt-4 flex items-center gap-1 text-primary font-semibold text-sm font-heading group-hover:gap-2 transition-all duration-200">
+          Learn More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
         </div>
       </div>
     </Link>

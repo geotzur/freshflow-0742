@@ -119,13 +119,20 @@ export default function Footer() {
             <p className="text-slate-600 text-sm">
               &copy; {new Date().getFullYear()} {company.name}. All rights reserved.
             </p>
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
               <Link href="/privacy-policy" className="text-slate-500 hover:text-white text-sm transition-colors duration-200">
                 Privacy Policy
               </Link>
               <Link href="/sitemap-page" className="text-slate-500 hover:text-white text-sm transition-colors duration-200">
                 Sitemap
               </Link>
+              <a
+                href="#main-content"
+                className="hidden sm:inline-flex items-center gap-1 text-slate-500 hover:text-white text-sm transition-colors duration-200 border border-white/10 px-3 py-1.5 rounded-lg hover:border-white/30"
+                aria-label="Back to top"
+              >
+                ↑ Top
+              </a>
             </div>
           </div>
         </div>

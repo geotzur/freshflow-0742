@@ -24,6 +24,8 @@ export default function Header() {
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
+    <>
+      <a href="#main-content" className="skip-to-content">Skip to content</a>
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -87,7 +89,7 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white shadow-lg animate-slide-up">
+        <div className="md:hidden border-t border-slate-200 bg-white shadow-lg mobile-nav-drawer">
           <nav className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
@@ -115,5 +117,6 @@ export default function Header() {
         </div>
       )}
     </header>
+    </>
   );
 }

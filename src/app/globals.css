@@ -9,27 +9,85 @@ html {
 
 body {
   font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Skip to content for keyboard accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: #2d6ea0;
+  color: white;
+  font-weight: 600;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: top 0.2s;
+}
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Mobile nav drawer animation */
+.mobile-nav-drawer {
+  animation: drawerSlideDown 0.25s ease-out forwards;
+}
+
+@keyframes drawerSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-triggered reveal */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  animation: revealUp 0.55s ease-out forwards;
+}
+
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold
            px-6 py-3 rounded-lg hover:bg-primary-dark active:scale-[0.98]
-           transition-all duration-200 shadow-md hover:shadow-lg font-heading;
+           transition-all duration-200 shadow-md hover:shadow-lg font-heading
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
+           cursor-pointer;
   }
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 bg-white text-primary font-semibold
            px-6 py-3 rounded-lg border-2 border-primary hover:bg-primary hover:text-white
-           active:scale-[0.98] transition-all duration-200 font-heading;
+           active:scale-[0.98] transition-all duration-200 font-heading
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
+           cursor-pointer;
   }
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white
            font-semibold px-6 py-3 rounded-lg hover:bg-white/10 backdrop-blur-sm
-           transition-all duration-200 font-heading;
+           transition-all duration-200 font-heading
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark
+           cursor-pointer;
   }
   .section-padding {
     @apply py-20 md:py-28 px-4 sm:px-6 lg:px-8;
@@ -42,5 +100,9 @@ h1, h2, h3, h4, h5, h6 {
   }
   .glass {
     @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  /* Card interactive states */
+  .card-interactive {
+    @apply hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer;
   }
 }
